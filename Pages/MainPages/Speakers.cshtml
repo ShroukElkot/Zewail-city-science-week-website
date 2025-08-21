@@ -1,0 +1,93 @@
+﻿@page
+@model ZewailCiryScienceWeek.Pages.MainPages.SpeakersModel
+@{
+    Layout = "_LayoutOFMainPageForDifferetUser";
+}
+<!-- ======= Speakers Header Section ======= -->
+<section id="hero">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+        <h1 class="mb-4 pb-0">The Speakers For<br>Zewail City Science Featival</h1>
+        <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+    </div>
+</section>
+<!-- ======= Speakers Header Section ======= -->
+<section class="p-4 m-4">
+   <form class="search" method="post">
+        <i class="fa fa-search"></i>
+        <input type="text" class="form-control" placeholder="Search" name="part">
+        <button class="btn btn-primary" type="submit">Search</button>
+     </form>
+
+
+    <section class="searching_content mt-3" id="speaker-cards">
+
+        @for (int i = 0; i < Model.speakerClasses.Count(); i++)
+        {
+
+            <div class="d-flex justify-content-center align-items-center speaker_member mb-4 pb-4 pt-4 shadow-lg ">
+                    <div class="Speakercard w-75">
+                        <div class="row no-gutters ">
+                            <div class="col-md-3">
+                            <img src="/img//MainPagePic/Team.png" class="card-img rounded-circle" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h2 class="card-title ">@Model.speakerClasses[i].FirstName @Model.speakerClasses[i].MiddleName @Model.speakerClasses[i].LastName </h2>
+                                    <div class="card-text">
+                                        <p class="mb=0  text-dark">@Model.speakerClasses[i].SpeakerExperienceInfo</p>
+                                    <p class="text-dark">The Topic is  @Model.speakerClasses[i].Topic @Model.speakerClasses[i].Topicdescription</p>
+                                        <div class="social ">
+                                            @for (int j = 0; j < Model.speakerClasses[i].SocialMediaLinks.Count(); j++)
+                                            {
+                                                if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("facebook"))
+                                                {
+                                                    <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                        <i class="bi bi-facebook "></i>
+
+                                                    </a>
+                                                }
+                                                else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("instagram"))
+                                                {
+                                                    <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                        <i class="bi bi-instagram "></i>
+
+                                                    </a>
+                                                }
+                                                else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("linkedin"))
+                                                {
+                                                    <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                        <i class="bi bi-linkedin "></i>
+
+                                                    </a>
+                                                }
+                                                else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("twitter"))
+                                                {
+                                                    <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                        <i class="bi bi-twitter "></i>
+
+                                                    </a>
+                                                }
+                                                else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("@"))
+                                                {
+                                                    <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                        <i class="bi bi-envelope "></i>
+
+
+                                                    </a>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        }
+    </section>
+</section>

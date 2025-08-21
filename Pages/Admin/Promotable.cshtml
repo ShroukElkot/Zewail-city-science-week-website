@@ -1,0 +1,86 @@
+﻿@page
+@model ZewailCiryScienceWeek.Pages.Admin.PromotableModel
+@{
+    Layout = "_LayoutAdmin";
+}
+
+
+
+
+<section class="form-body">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content" style="background-color:#E5EBEB ">
+
+            <div class="container-fluid px-4">
+                <div class="mt-4" style="padding-top: 40px;">
+                    <h1 class="mt-4" style="display: inline; padding: 5px; color:#023b3d ;text-transform: uppercase;">Promo Codes</h1>
+
+                    <h1>
+                        <a href="/Admin/promocode">
+                            <button class="btn btn-primary-promo" type="button" background-color:#023b3d> Add A New Promo Code</button>
+                        </a>
+                    </h1>
+
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple" style="color:white; background-color:#4D7577  ">
+                        <thead>
+                            <tr style="text-transform: uppercase">
+                                <th>Promo Code</th>
+                                <th>Discount Percentage</th>
+                                <th>Number Of Tickets Offered</th>
+                                <th>Number Of Passing</th>
+                                <th>Assigned To</th>
+                                <th>Remaining </th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+
+                                <th>Promo Code</th>
+                                <th>Discount Percentage</th>
+                                <th>Number Of Tickets Offered</th>
+                                <th>Number Of Passing</th>
+                                <th>Assigned To</th>
+                                <th>Remaining </th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @for (int i = 0; i < Model.dt.Rows.Count; i++)
+                            {
+                                <tr>
+                                    <th scope="row">@Model.dt.Rows[i][0]</th>
+                                    @for (int j = 1; j < @Model.dt.Columns.Count; j++)
+                                    {
+                                        <td>@Model.dt.Rows[i][j]</td>
+                                    }
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+<style>
+    table {
+        background-color: #E5EBEB;
+    }
+
+    h1 {
+        padding: 5px;
+        color: #E5EBEB;
+    }
+
+    label {
+        color: #E5EBEB;
+    }
+
+    div {
+        color: #023b3d;
+    }
+</style>
+

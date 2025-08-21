@@ -1,0 +1,113 @@
+﻿@page
+@model ZewailCiryScienceWeek.Pages.Admin.ticketsModel
+@{
+    Layout = "_LayoutOFMainPageForDifferetUser";
+}
+
+
+
+<section class="form-body">
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content" style="background-color:#E5EBEB">
+
+            <div class="container-fluid px-4">
+                <div class="mt-4" style="padding-top: 40px;">
+                    <h1 class="mt-4" style="display: inline; padding: 5px; color:#023b3d ;text-transform: uppercase;">Tickets</h1>
+                </div>
+
+                <div class="card-body">
+                    <table id="datatablesSimple" style="color:white; background-color:#4D7577   ">
+                        <thead>
+                            <tr style="text-transform: uppercase">
+                                <th>Ticket ID</th>
+                                <th>Visitor ID</th>
+                                <th>Type</th>
+                                <th>Fees</th>
+                                <th>Payment Code</th>
+                                <th>Capacity</th>
+                                <th>Day</th>
+                                <th>Promocode</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+
+                                <th>Ticket ID</th>
+                                <th>Visitor ID</th>
+                                <th>Type</th>
+                                <th>Fees</th>
+                                <th>Payment Code</th>
+                                <th>Capacity</th>
+                                <th>Day</th>
+                                <th>Promocode</th>
+                                <th class="col-remove">Status</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @for (int i = 0; i < Model.dt.Rows.Count; i++)
+                            {
+                                <tr>
+                                    <th scope="row">@Model.dt.Rows[i][0]</th>
+                                    @for (int j = 1; j < @Model.dt.Columns.Count; j++)
+                                    {
+                                        <td>@Model.dt.Rows[i][j]</td>
+                                    }
+                                    <td><button class="btn-remove" onclick="removeRow(this)">-</button></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+    table {
+        background-color: #E5EBEB;
+    }
+
+    h1 {
+        padding: 5px;
+        color: #E5EBEB;
+    }
+
+    label {
+        color: #E5EBEB;
+    }
+
+    div {
+        color: #023b3d;
+    }
+
+    .btn-remove {
+        border: 2px solid black; /* set border to black */
+        border-radius: 50%; /* make the button circular */
+        width: 30px; /* set the button width */
+        height: 30px; /* set the button height */
+        font-size: 16px; /* set the font size */
+        color: black; /* set the font color to black */
+        background-color: white; /* set the background color to white */
+        cursor: pointer; /* set the cursor to pointer when hovering */
+    }
+
+    .col-remove {
+        text-align: center;
+    }
+
+    .btn-remove:hover {
+        background-color: #f5f5f5; /* change the background color when hovering */
+        color: white; /* change the font color when hovering */
+    }
+</style>
+<script>
+    function removeRow(button) {
+        var result = confirm("Are you sure you want to remove this row?");
+        if (result) {
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+    }
+</script>
+

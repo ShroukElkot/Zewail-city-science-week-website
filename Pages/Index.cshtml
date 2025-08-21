@@ -1,0 +1,547 @@
+﻿@page
+@model ZewailCiryScienceWeek.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@{
+    Layout = "_LayoutOFMainPageForDifferetUser";
+}
+
+<!--======================Header MAin Page=================================-->
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+        <h1 class="mb-4 pb-0">The Annual<br>Zewail City Science Week</h1>
+        <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
+        <a href="/Visitor/buyticket" class="about-btn scrollto" style="color:#fff">Get Your Ticket Now</a>
+    </div>
+</section><!-- End Hero Section -->
+<!--======================Header MAin Page=================================-->
+<!--======================The NavBar for the Main Page for UnSigned Visitor======================-->
+<!--=============================================================================================-->
+<!--======================The NavBar for the Main Page for UnSigned Visitor======================-->
+<!--=============================================================================================-->
+<!--=======================================================================-->
+<!--About Us Start -->
+<!--=======================================================================-->
+<section class="p-4 m-4 ">
+    <div class="section-title">
+        <h2 class="text-center">About Aewail City Science Week</h2>
+
+    </div>
+    <div class="card mb-5 border">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img class="card-img" src="/img/MainPagePic/AboutFeatival.jpeg">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">Zewail City Science Featival</h3>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><a class="text-muted btn about-btn">Read More</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-5 border">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img class="card-img" src="/img/MainPagePic/Conference/Conference.png">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title">Zewail City Science Conference</h3>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><a class="text-muted  btn about-btn" href="MainPages/Conference">Read More</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=======================================================================-->
+<!-- About End -->
+<!--=======================================================================-->
+<!-- Team End -->
+<!--=======================================================================-->
+<section id="team" class="team section-bg section_team">
+    <div class="m-2 p-4">
+        <div class="section-title">
+            <h2>Our Expert Team</h2>
+            <div class="underline"></div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, ducimus.</p>
+        </div>
+        <div class="row">
+            @for (int i = 0; i < Model.TeamClasses.Count(); i++)
+            {
+                <div class="col-lg-3 h-100">
+                    <div class="member card align-items-center mb-2">
+                        <div class="teampic"><img src="/img/MainPagePic/Team.png" class="card-img-top rounded-circle" alt=""></div>
+                        <div class="member-info card-body">
+                            <h4 class="card-title">@Model.TeamClasses[i].FirstName @Model.TeamClasses[i].LastName</h4>
+                            <p class="card-text">@Model.TeamClasses[i].Position @Model.TeamClasses[i].CommitteeName</p>
+
+                            <div class="social">
+                                @for (int j = 0; j < Model.TeamClasses[i].SocialMediaLinks.Count(); j++)
+                                {
+
+                                    if (Model.TeamClasses[i].SocialMediaLinks[j].Contains("facebook"))
+                                    {
+                                        <a href=@Model.TeamClasses[i].SocialMediaLinks[j]>
+
+                                            <i class="bi bi-facebook"></i>
+
+                                        </a>
+                                    }
+                                    else if (Model.TeamClasses[i].SocialMediaLinks[j].Contains("instagram"))
+                                    {
+                                        <a href=@Model.TeamClasses[i].SocialMediaLinks[j]>
+
+                                            <i class="bi bi-instagram"></i>
+
+                                        </a>
+                                    }
+                                    else if (Model.TeamClasses[i].SocialMediaLinks[j].Contains("linkedin"))
+                                    {
+                                        <a href=@Model.TeamClasses[i].SocialMediaLinks[j]>
+
+                                            <i class="bi bi-linkedin"></i>
+
+                                        </a>
+                                    }
+                                    else if (Model.TeamClasses[i].SocialMediaLinks[j].Contains("twitter"))
+                                    {
+                                        <a href=@Model.TeamClasses[i].SocialMediaLinks[j]>
+
+                                            <i class="bi bi-twitter"></i>
+
+                                        </a>
+                                    }
+                                    else if (Model.TeamClasses[i].SocialMediaLinks[j].Contains("@"))
+                                    {
+                                        <a href=@Model.TeamClasses[i].SocialMediaLinks[j]>
+
+                                            <i class="bi bi-envelope"></i>
+
+                                        </a>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+        <div class="text-center m-3">
+            <a class="about-btn btn text-black w-25">                  Read More                </a>
+
+        </div>
+    </div>
+</section>
+<!--=======================================================================-->
+<!-- Team End -->
+<!--=======================================================================-->
+<!--Speakers-->
+<!--=======================================================================-->
+<section class="mt-4 pt-5 pb-5" style="height:100vh">
+    <div class="section-title">
+        <h2 class="text-center "> Our Festival Speakers</h2>
+
+    </div>
+    <section class=" d-flex justify-content-center align-items-center h-75 Speakers">
+        <div id="carouselExampleInterval" class="carousel slide w-100" data-bs-ride="carousel">
+            <div class="carousel-inner ">
+                <div class="carousel-item active " data-bs-interval="1000">
+                    <div class="d-flex justify-content-center align-items-center speaker_member ">
+                        <div class="Speakercard mb-3 w-75">
+                            <div class="row no-gutters">
+                                <div class="col-md-3">
+                                    <img src="/img//MainPagePic/Team.png" class="card-img rounded-circle" alt="...">
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body">
+                                        <h2 class="card-title text-light">@Model.speakerClasses[0].FirstName @Model.speakerClasses[0].MiddleName @Model.speakerClasses[0].LastName </h2>
+                                        <div class="card-text">
+                                            <p class="mb=0">@Model.speakerClasses[0].SpeakerExperienceInfo</p>
+                                            <p>The Topic is  @Model.speakerClasses[0].Topic @Model.speakerClasses[0].Topicdescription</p>
+                                            <div class="social">
+                                                @for (int j = 0; j < Model.speakerClasses[0].SocialMediaLinks.Count(); j++)
+                                                {
+                                                    if (Model.speakerClasses[0].SocialMediaLinks[j].Contains("facebook"))
+                                                    {
+                                                        <a href=@Model.speakerClasses[0].SocialMediaLinks[j]>
+
+                                                            <i class="bi bi-facebook text-light"></i>
+
+                                                        </a>
+                                                    }
+                                                    else if (Model.speakerClasses[0].SocialMediaLinks[j].Contains("instagram"))
+                                                    {
+                                                        <a href=@Model.speakerClasses[0].SocialMediaLinks[j]>
+
+                                                            <i class="bi bi-instagram text-light"></i>
+
+                                                        </a>
+                                                    }
+                                                    else if (Model.speakerClasses[0].SocialMediaLinks[j].Contains("linkedin"))
+                                                    {
+                                                        <a href=@Model.speakerClasses[0].SocialMediaLinks[j]>
+
+                                                            <i class="bi bi-linkedin text-light"></i>
+
+                                                        </a>
+                                                    }
+                                                    else if (Model.speakerClasses[0].SocialMediaLinks[j].Contains("twitter"))
+                                                    {
+                                                        <a href=@Model.speakerClasses[0].SocialMediaLinks[j]>
+
+                                                            <i class="bi bi-twitter text-light"></i>
+
+                                                        </a>
+                                                    }
+                                                    else if (Model.speakerClasses[0].SocialMediaLinks[j].Contains("@"))
+                                                    {
+                                                        <a href=@Model.speakerClasses[0].SocialMediaLinks[j]>
+
+                                                            <i class="bi bi-envelope text-light"></i>
+
+                                                        </a>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @for (int i = 1; i < Model.speakerClasses.Count(); i++)
+                {
+
+                    <div class="carousel-item  " data-bs-interval="2000">
+                        <div class="d-flex justify-content-center align-items-center speaker_member ">
+                            <div class="Speakercard mb-3 w-75">
+                                <div class="row no-gutters">
+                                    <div class="col-md-3">
+                                        <img src="/img//MainPagePic/Team.png" class="card-img rounded-circle" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h2 class="card-title text-light">@Model.speakerClasses[i].FirstName @Model.speakerClasses[i].MiddleName @Model.speakerClasses[i].LastName </h2>
+                                            <div class="card-text">
+                                                <p class="mb-0">@Model.speakerClasses[i].SpeakerExperienceInfo</p>
+                                                <p>The Topic is  @Model.speakerClasses[i].Topic @Model.speakerClasses[i].Topicdescription</p>
+                                                <div class="social ">
+                                                    @for (int j = 0; j < Model.speakerClasses[i].SocialMediaLinks.Count(); j++)
+                                                    {
+                                                        if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("facebook"))
+                                                        {
+                                                            <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                                <i class="bi bi-facebook text-light"></i>
+
+                                                            </a>
+                                                        }
+                                                        else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("instagram"))
+                                                        {
+                                                            <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                                <i class="bi bi-instagram text-light"></i>
+
+                                                            </a>
+                                                        }
+                                                        else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("linkedin"))
+                                                        {
+                                                            <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                                <i class="bi bi-linkedin text-light"></i>
+
+                                                            </a>
+                                                        }
+                                                        else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("twitter"))
+                                                        {
+                                                            <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                                <i class="bi bi-twitter text-light"></i>
+
+                                                            </a>
+                                                        }
+                                                        else if (Model.speakerClasses[i].SocialMediaLinks[j].Contains("@"))
+                                                        {
+                                                            <a href=@Model.speakerClasses[i].SocialMediaLinks[j]>
+
+                                                                <i class="bi bi-envelope text-light"></i>
+
+                                                            </a>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </section>
+    <div class="text-center m-3">
+        <a class="about-btn btn text-black w-25" href="/MainPages/Speakers">                  Read More                </a>
+
+    </div>
+</section>
+<!--=======================================================================-->
+<!-- EndSpeakers-->
+<!--=======================================================================-->
+<!--======================================================================-->
+<!-- ======= Sponsors Section ======= -->
+<!--======================================================================-->
+
+<section id="supporters" class="">
+
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Sponsors</h2>
+        </div>
+
+        <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
+            
+            @for (int i = 1; i <= 8; i++)
+            {
+                <div class="col-lg-3 col-md-4 col-xs-6">
+                    <div class="supporter-logo">
+
+                        <img src="/img/MainPagePic/supporters/@(i.ToString()).png" class="img-fluid" alt="">
+                    </div>
+                </div>
+            }
+            
+         </div>
+</div>
+</section>
+
+<!--======================================================================-->
+<!-- End Sponsors Section -->
+<!--======================================================================-->
+<!-- ======= Schedule Section ======= -->
+<section id="schedule" class="section-with-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Event Schedule</h2>
+            <p>Here is our event schedule</p>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
+            <li class="nav-item mb-2">
+                <a class="nav-link active" href="#day-1" role="tab" data-bs-toggle="tab">Day 1</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link " href="#day-2" role="tab" data-bs-toggle="tab">Day 2</a>
+            </li>
+            <li class="nav-item mb-2">
+                <a class="nav-link" href="#day-3" role="tab" data-bs-toggle="tab">Day 3</a>
+            </li>
+                        <li class="nav-item">
+                <a class="nav-link" href="#day-4" role="tab" data-bs-toggle="tab">Day 4</a>
+            </li>
+                        <li class="nav-item mb-2">
+                <a class="nav-link" href="#day-5" role="tab" data-bs-toggle="tab">Day 5</a>
+            </li>
+                        <li class="nav-item mb-2">
+                <a class="nav-link" href="#day-6" role="tab" data-bs-toggle="tab">Day 6</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#day-7" role="tab" data-bs-toggle="tab">Day 7</a>
+            </li>
+        </ul>
+
+        <h3 class="sub-heading">
+            Voluptatem nulla veniam soluta et corrupti consequatur neque eveniet officia. Eius
+            necessitatibus voluptatem quis labore perspiciatis quia.
+        </h3>
+
+        <div class="tab-content row justify-content-center" data-aos="fade-up" data-aos-delay="200" style="font-size:20px">
+
+            @for (int k=0;k<Math.Min(Model.speakerScdule.Count,Model.roomsScdule.Count); k++)
+            {
+                <!-- Schdule Day 1 -->
+                if (k==0){
+                <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="@($"day-{k+1}")">
+                        @if (Model.roomsScdule[k].Rows.Count != 0)
+                        {
+                            <h3 class="text-center mb-2">
+                                Here Is Our Rooms For Day @(k + 1)
+                            </h3>
+                        }
+                    @for (int i = 0; i < Model.roomsScdule[k].Rows.Count; i++)
+                    {
+                        <div class="row schedule-item">
+                            <div class="col-md-2"><time>@Model.roomsScdule[k].Rows[i][0]</time></div>
+                            <div class="col-md-10">
+                                <div class="speaker">
+                                    <img src="~/img/MainPagePic/Team.png" alt="Alejandrin Littel">
+                                </div>
+                                <h4>@Model.roomsScdule[k].Rows[i][1] <span>@Model.roomsScdule[k].Rows[i][2]</span></h4>
+                                <p>@Model.roomsScdule[k].Rows[i][3].</p>
+                            </div>
+                        </div>
+                    }
+                        @if (Model.speakerScdule[k].Rows.Count != 0)
+                        {
+                            <h3 class="text-center mb-2">
+                                Here Is Our Talks For Day @(k + 1)
+                            </h3>
+                        }
+                    @for (int i = 0; i < Model.speakerScdule[k].Rows.Count; i++)
+                    {
+                        <div class="row schedule-item">
+                            <div class="col-md-2"><time>@Model.speakerScdule[k].Rows[i][0]</time></div>
+                            <div class="col-md-10">
+                                <div class="speaker">
+                                    <img src="~/img/MainPagePic/Team.png" alt="Alejandrin Littel">
+                                </div>
+                                <h4>@Model.speakerScdule[k].Rows[i][2] <span>@Model.speakerScdule[k].Rows[i][1]</span></h4>
+                                <p>@Model.speakerScdule[k].Rows[i][3]</p>
+                            </div>
+                        </div>
+                    }
+
+
+                    </div>
+                }
+                else
+                {
+                    <div role="tabpanel" class="col-lg-9  tab-pane fade" id="@($"day-{k+1}")">
+                        @if (Model.roomsScdule[k].Rows.Count != 0)
+                        {
+                            <h3 class="text-center mb-2">
+                                Here Is Our Rooms For Day @(k + 1)
+                            </h3>
+                        }
+
+                        @for (int i = 0; i < Model.roomsScdule[k].Rows.Count; i++)
+                        {
+                            <div class="row schedule-item">
+                                <div class="col-md-2"><time>@Model.roomsScdule[k].Rows[i][0]</time></div>
+                                <div class="col-md-10">
+                                    <div class="speaker">
+                                        <img src="~/img/MainPagePic/Team.png" alt="Alejandrin Littel">
+                                    </div>
+                                    <h4>@Model.roomsScdule[k].Rows[i][1] <span>@Model.roomsScdule[k].Rows[i][2]</span></h4>
+                                    <p>@Model.roomsScdule[k].Rows[i][3].</p>
+                                </div>
+                            </div>
+                        }
+                        @if (Model.speakerScdule[k].Rows.Count != 0)
+                        {
+                            <h3 class="text-center mb-2">
+                                Here Is Our Talks For Day @(k + 1)
+                            </h3>}
+                        @for (int i = 0; i < Model.speakerScdule[k].Rows.Count; i++)
+                        {
+                            <div class="row schedule-item">
+                                <div class="col-md-2"><time>@Model.speakerScdule[k].Rows[i][0]</time></div>
+                                <div class="col-md-10">
+                                    <div class="speaker">
+                                        <img src="~/img/MainPagePic/Team.png" alt="Alejandrin Littel">
+                                    </div>
+                                    <h4>@Model.speakerScdule[k].Rows[i][2] <span>@Model.speakerScdule[k].Rows[i][1]</span></h4>
+                                    <p>@Model.speakerScdule[k].Rows[i][3].</p>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+
+                }
+
+            }
+               
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- End Schedule Section -->
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="section-bg">
+
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+            <h2>Contact Us</h2>
+            <p>Nihil officia ut sint molestiae tenetur.</p>
+        </div>
+
+        <div class="row contact-info">
+
+            <div class="col-md-4">
+                <div class="contact-address">
+                    <i class="bi bi-geo-alt"></i>
+                    <h3>Address</h3>
+                    <address>A108 Adam Street, NY 535022, USA</address>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-phone">
+                    <i class="bi bi-phone"></i>
+                    <h3>Phone Number</h3>
+                    <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="contact-email">
+                    <i class="bi bi-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:info@example.com">info@example.com</a></p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group col-md-6 mt-3 mt-md-0">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+        </div>
+
+    </div>
+</section><!-- End Contact Section -->
