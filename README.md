@@ -1,6 +1,10 @@
 # Zewail City Science Week Website  
 
-A platform for the annual Science Week of Zewail City that contains all the information related to the event, including the theme, speakers, tickets, team, and other sections for event management.  
+A platform for the annual **Science Week of Zewail City** that contains all the information related to the event, including the theme, speakers, tickets, team, and other sections for event management.  
+
+## Project Date  
+ April 2023  
+  
 
 ## Features  
 - Event details and theme overview  
